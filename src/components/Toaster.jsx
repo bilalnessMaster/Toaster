@@ -7,7 +7,7 @@ class Toaster extends React.Component {
     constructor(props){
         super(props)
         this.state= {
-            trigger : false , 
+            trigger : true , 
             message : 'toaster test',
             emoji : '', 
             time : 1 , 
