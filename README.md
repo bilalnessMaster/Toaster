@@ -9,3 +9,13 @@ Currently, two official plugins are available:
 
 
 before you should install the dependencies
+step 1 : 
+import Toaster from './components/Toaster'
+step : 
+create toasterRef = useRef(null)
+than assign it to Toaster component
+step 3: 
+With toasterRef.current we access the toaster method success and error 
+setp 4 : 
+I am junior dont forget to leave a star 
+(public/toasterImg.png)
