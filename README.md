@@ -9,13 +9,18 @@ Currently, two official plugins are available:
 
 
 before you should install the dependencies
-step 1 : 
+```javascript
+// step 1 : 
 import Toaster from './components/Toaster'
-step : 
+// step 2 : 
 create toasterRef = useRef(null)
-than assign it to Toaster component
-step 3: 
-With toasterRef.current we access the toaster method success and error 
-setp 4 : 
-I am junior dont forget to leave a star 
-(public/toasterImg.png)
+// then assign it to Toaster component
+<Toaster ref={toasterRef} />
+// step 3: 
+// With toasterRef.current we can access the toaster methods such as success and error 
+toasterRef.current.success('This is a success message');
+toasterRef.current.error('This is an error message');
+
+## setp 4 : 
+I'm a junior developer, so don't forget to leave a star ⭐ on the project if you find it useful!
+(./public/toasterImg.png)
