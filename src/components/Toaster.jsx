@@ -9,7 +9,9 @@ class Toaster extends React.Component {
         this.state= {
             trigger : false , 
             message : 'toaster test',
-            emoji : ''
+            emoji : '', 
+            time : 1 , 
+            color : 'green'
         }
     }
     render(){
@@ -20,7 +22,7 @@ class Toaster extends React.Component {
                             animate= {{
                                 x : this.state.trigger ? 0 : -400
                             }}
-                            className=" bg-neutral-200/55 px-4 py-3 w-fit m-2 rounded text-sm font-bold flex item-center  gap-2">
+                            className="relative bg-neutral-200/55 px-4 py-3 w-fit m-2 rounded text-sm font-bold flex item-center  gap-2">
                                 
                                 <div>
 
@@ -30,30 +32,42 @@ class Toaster extends React.Component {
                                <div className="border-l-2 border-black/25 px-2 first-letter:capitalize text-blue-950">
                                {this.state.message}
                                </div>
+                               <motion.div
+                               
+                               animate={{
+                                scaleX : this.state.trigger ? 0 : 1
+                               }}
+                               transition ={{
+                                duration : 1
+                               }}
+                               style={{
+                                backgroundColor : this.state.color
+                               }}
+                               className="absolute bottom-0 left-0 origin-left w-full h-1 "></motion.div>
                              </motion.div>
                     </div>
                 )
        
     }
     success(message , time ){
-            this.setState({message : message , trigger : true , emoji : <i className="ri-check-line text-green-600"></i>})
+            this.setState({message : message ,color : 'green' , trigger : true , time : time , emoji : <i className="ri-check-line text-green-600"></i>})
         
 
             
             setTimeout(()=>{
                 this.setState({trigger : false})
 
-            } , time || 1000 )
+            } ,  1000 )
     }
     error(message , time ){
-        this.setState({message : message , trigger : true , emoji : <i class="ri-error-warning-line text-red-600"></i>})
+        this.setState({message : message , color : 'red',trigger : true , emoji : <i class="ri-error-warning-line text-red-600"></i>})
     
 
         
         setTimeout(()=>{
-            this.setState({trigger : false})
+            this.setState({trigger : false   })
 
-        } , time || 1000 )
+        } , 1000 )
 }
 
 }
